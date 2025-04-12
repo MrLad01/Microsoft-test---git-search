@@ -116,10 +116,10 @@ function App() {
     });
   }
 
-  const info = localStorage.getItem('userInfo');
+  const info = JSON.parse(localStorage.getItem('userInfo') || '{}');
 
   useEffect(() => {
-    if (info !== null) {
+    if (info !== null && username !== '' && info.username === username) {
       setLoading(true);
       setError(null);
       try {
